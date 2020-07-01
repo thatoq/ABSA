@@ -11,6 +11,7 @@ public class DriverFactory {
     private static DriverFactory instance = new DriverFactory();
     private static String driverPath = System.getProperty("user.dir") + "/src/test/java/webdrivers";
 
+
     public static DriverFactory getInstance() {
         return instance;
     }
@@ -26,6 +27,15 @@ public class DriverFactory {
     }
 
     void setupChromeInstance() {
+        String chromeDriverPath = driverPath + "/chromedriver.exe";
+        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+
+        setDriver(new ChromeDriver(options));
+    }
+    void setupMacChromeInstance() {
         String chromeDriverPath = driverPath + "/chromedriver";
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
@@ -46,6 +56,9 @@ public class DriverFactory {
     // This method accepts a string as parameter and instantiates a browser based on the string passed which represents browser name
     public WebDriver getBrowserInstance(String browser) throws Exception {
         switch(browser) {
+            case "MACchrome":
+                setupMacChromeInstance();
+                break;
             case "chrome":
                 setupChromeInstance();
                 break;
