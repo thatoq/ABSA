@@ -18,6 +18,8 @@ Java Maven Project
 ## Driver
 
  MAC ChromeDriver
+ 
+ Windows Chromedriver---default
 
 ## TESTS
 
