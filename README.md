@@ -15,7 +15,7 @@ Java Maven Project
 
  Extent Reports 
 
-## Driver
+## Wed Drivers
 
  MAC ChromeDriver
  
